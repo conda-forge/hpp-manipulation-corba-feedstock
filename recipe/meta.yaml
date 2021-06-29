@@ -30,7 +30,7 @@ requirements:
     - urdfdom
     - assimp
     - octomap
-    - hpp-fcl ={{ major }}
+    - hpp-fcl
     - hpp-util ={{ major }}
     - hpp-statistics ={{ major }}
     - pinocchio ==2.5.4
