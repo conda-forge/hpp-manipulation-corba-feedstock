@@ -10,7 +10,7 @@ source:
   sha256: a5c9b36251b15868f20c680136c2383186b26a5aa60a1a310e23a0a34978bde3
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage(name|lower, max_pin='x.x') }}
@@ -32,7 +32,7 @@ requirements:
     - hpp-fcl
     - hpp-util
     - hpp-statistics
-    - pinocchio==2.5.4
+    - pinocchio ==2.5.4
     - hpp-pinocchio
     - hpp-constraints
     - hpp-core
