@@ -31,10 +31,10 @@ requirements:
     - urdfdom
     - assimp
     - octomap
-    - hpp-fcl
+    - hpp-fcl  1.8.1
     - hpp-util  {{ version }}
     - hpp-statistics  {{ version }}
-    - pinocchio  {{ version }}
+    - pinocchio
     - hpp-pinocchio  {{ version }}
     - hpp-constraints  {{ version }}
     - hpp-core  {{ version }}
