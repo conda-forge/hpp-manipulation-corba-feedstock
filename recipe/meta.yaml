@@ -1,6 +1,5 @@
 {% set name = "hpp-manipulation-corba" %}
-{% set major = "4.10" %}
-{% set version = "4.10.1" %}
+{% set version = "4.13.0" %}
 
 package:
   name: {{ name }}
@@ -8,10 +7,10 @@ package:
 
 source:
   url: https://github.com/humanoid-path-planner/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a5c9b36251b15868f20c680136c2383186b26a5aa60a1a310e23a0a34978bde3
+  sha256: 21f19b7c01745c746eb3fb757d09dc0d14973d4fbba3a670cf20820120fabc2d
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage(name|lower, max_pin='x.x') }}
@@ -23,6 +22,8 @@ requirements:
     - make
     - pkg-config
     - doxygen
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
     - boost
     - boost-cpp
@@ -30,17 +31,17 @@ requirements:
     - urdfdom
     - assimp
     - octomap
-    - hpp-fcl
-    - hpp-util ={{ major }}
-    - hpp-statistics ={{ major }}
-    - pinocchio ==2.5.4
-    - hpp-pinocchio ={{ major }}
-    - hpp-constraints ={{ major }}
-    - hpp-core ={{ major }}
-    - hpp-manipulation ={{ major }}
-    - hpp-manipulation-urdf ={{ major }}
-    - hpp-template-corba ={{ major }}
-    - hpp-corbaserver ={{ major }}
+    - hpp-fcl  1.8.1
+    - hpp-util  {{ version }}
+    - hpp-statistics  {{ version }}
+    - pinocchio
+    - hpp-pinocchio  {{ version }}
+    - hpp-constraints  {{ version }}
+    - hpp-core  {{ version }}
+    - hpp-manipulation  {{ version }}
+    - hpp-manipulation-urdf  {{ version }}
+    - hpp-template-corba  {{ version }}
+    - hpp-corbaserver  {{ version }}
     - omniorb
     - omniorbpy
     - python
@@ -64,7 +65,7 @@ about:
   home: https://github.com/humanoid-path-planner/{{ name }}
   license: LGPL-3.0-or-later
   license_file: COPYING
-  summary: '{{ name }} subpackage of Humanoid Path Planner suite'
+  summary: {{ name }} subpackage of Humanoid Path Planner suite
   description: |
     HPP (Humanoid Path Planner) is a collection of software packages implementing
     path planning functionalities for a humanoid robot. The core functionalities are well
@@ -76,3 +77,4 @@ about:
 extra:
   recipe-maintainers:
     - ymontmarin
+    - jcarpent
