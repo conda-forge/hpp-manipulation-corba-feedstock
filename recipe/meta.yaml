@@ -1,5 +1,5 @@
 {% set name = "hpp-manipulation-corba" %}
-{% set version = "4.13.0" %}
+{% set version = "4.14.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/humanoid-path-planner/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 21f19b7c01745c746eb3fb757d09dc0d14973d4fbba3a670cf20820120fabc2d
+  sha256: c1e04721f0ad2709aa4c343ca345cfb62a641bc3b15414432f7fa50e5483b14b
 
 build:
   number: 0
