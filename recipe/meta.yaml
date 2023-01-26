@@ -1,5 +1,5 @@
 {% set name = "hpp-manipulation-corba" %}
-{% set version = "4.14.0" %}
+{% set version = "4.15.1" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/humanoid-path-planner/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c1e04721f0ad2709aa4c343ca345cfb62a641bc3b15414432f7fa50e5483b14b
+  sha256: 5d2bd689b769ed8b0bddc7cdd3d74fb1c8e5f6c256555b8dda9dd239f336a15f
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage(name|lower, max_pin='x.x') }}
@@ -31,7 +31,7 @@ requirements:
     - urdfdom
     - assimp
     - octomap
-    - hpp-fcl  1.8.1
+    - hpp-fcl
     - hpp-util  {{ version }}
     - hpp-statistics  {{ version }}
     - pinocchio
