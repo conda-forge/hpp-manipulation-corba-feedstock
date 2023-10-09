@@ -10,7 +10,7 @@ source:
   sha256: 5d2bd689b769ed8b0bddc7cdd3d74fb1c8e5f6c256555b8dda9dd239f336a15f
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage(name|lower, max_pin='x.x.x') }}
@@ -25,8 +25,8 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - boost
-    - boost-cpp
+    - libboost-devel
+    - libboost-python-devel
     - tinyxml
     - urdfdom
     - assimp
@@ -46,8 +46,6 @@ requirements:
     - omniorbpy
     - python
   run:
-    - boost
-    - boost-cpp
     - tinyxml
     - omniorb
     - omniorbpy
