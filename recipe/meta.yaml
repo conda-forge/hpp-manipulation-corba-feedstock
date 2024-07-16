@@ -1,5 +1,5 @@
 {% set name = "hpp-manipulation-corba" %}
-{% set version = "5.0.0" %}
+{% set version = "5.1.0" %}
 
 package:
   name: {{ name }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/humanoid-path-planner/{{ name }}/releases/download/v{{ version }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a44e257d50cc4a8b10af705297db2dc145425c27b417e8304c8d7e7ca3401da0
+  sha256: ee998c9ea551795a1a3d17438081e5c1cc04165cfc5dc887247e81eb1fda80bc
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage(name|lower, max_pin='x.x.x') }}
@@ -32,6 +32,8 @@ requirements:
     - assimp
     - octomap
     - hpp-fcl
+    - qhull
+    - qhull-static
     - hpp-util  {{ version }}
     - hpp-statistics  {{ version }}
     - pinocchio
@@ -51,6 +53,8 @@ requirements:
     - omniorbpy
     - numpy
     - python
+    - qhull
+    - qhull-static
 
 test:
   requires:
@@ -61,8 +65,8 @@ test:
 
 about:
   home: https://github.com/humanoid-path-planner/{{ name }}
-  license: LGPL-3.0-or-later
-  license_file: COPYING
+  license: BSD-2-Clause
+  license_file: LICENSE
   summary: {{ name }} subpackage of Humanoid Path Planner suite
   description: |
     HPP (Humanoid Path Planner) is a collection of software packages implementing
